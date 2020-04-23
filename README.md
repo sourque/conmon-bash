@@ -1,9 +1,10 @@
 # conmon.sh
 
-Connection monitor (conmon). Written in pure bash, only one file (although it uses text files for storage). 
-Currently only tested on Ubuntu 16.04.
+WARNING: This project is awful, I'm leaving it up as a testament to how you really can solve everything in bash, but sometimes that's not a good thing.
 
-[Main Screen Example](img/screenshot1.png)
+Connection monitor (conmon). Written in pure bash, only one file (although it uses text files for storage). 
+
+![Main Screen Example](img/screenshot1.png)
 
 Dependencies:
 - bash
@@ -18,25 +19,21 @@ e (examine): depends on service. gives more detail about connection
 h (help): print help
 q (quit): quit
 
-- todo
-	- fill out all obvious features
-	- add hide option (in case they're sshing in and dont want to see their own conn)
-	- use unhide to check for hidden conns
-	- show weird dns connections to not localhost (and store content of request... pre-emptively? wrapper script for dns reqs?)
-	- sysdig grep -v conmon processes to avoid clogging it up
-	- fix too long lines
+### Todo
+- fill out all obvious features
+- add hide option (in case they're sshing in and dont want to see their own conn)
+- use unhide to check for hidden conns
+- show weird dns connections to not localhost (and store content of request... pre-emptively? wrapper script for dns reqs?)
+- sysdig grep -v conmon processes to avoid clogging it up
+- fix too long lines
 
-- 'bugs' atm
-	- catching ssh when logging in shows inactive once user is logged in (change in recorded PID)
+### Known bugs
+- catching ssh when logging in shows inactive once user is logged in (change in recorded PID)
 	
-	
-----
-
-details
-
-conns.txt --> scratchpad for connection data
-output.txt --> used for referencing data if it changes (conNum pid ip serviceName)
-graveyard.txt --> inactive conns (serviceName timeout pid ip)
-newyard.txt --> temp. storage for old connections
-info.txt --> temp. storage for reporting info
+### Storage details
+- conns.txt --> scratchpad for connection data
+- output.txt --> used for referencing data if it changes (conNum pid ip serviceName)
+- graveyard.txt --> inactive conns (serviceName timeout pid ip)
+- newyard.txt --> temp. storage for old connections
+- info.txt --> temp. storage for reporting info
 
